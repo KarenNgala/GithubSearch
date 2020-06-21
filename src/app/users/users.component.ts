@@ -1,29 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import{ GithubService }from '../services/github.service'
-import { Users } from '../Classes/users'
+import { Component, OnInit, } from '@angular/core';
+import { Users } from '../Classes/users';
+import { GithubService } from '../services/github.service'
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: ['./users.component.css'],
+  providers:[GithubService]
 })
 export class UsersComponent implements OnInit {
-  profile:Users;
 
-  constructor(private githubService:GithubService){
-   }
+  user:Users;
 
-  getUser(){
-    this.githubService.getData()
-    // .subscribe((res)=>{
-    //   console.log("success", res);
-    //   this.user=res;
-    // });
+  constructor(private dataService:GithubService){
+  }
+
+  getUser(searchTerm){
+    this.dataService.getData(searchTerm).then(
+      (success)=>{
+        this.user=this.dataService.profile;
+        console.log(this.user)
+      }, 
+      (error)=>{
+        console.log(error)
+      }
+    )
   }
 
   ngOnInit(): void {
-    this.githubService.getData()
-    this.profile=this.githubService.profile
+    this.getUser('karenngala');
   }
 
 }
