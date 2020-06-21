@@ -2,15 +2,40 @@
     <app-header></app-header>
 </div>
 <div class="container">
-    <div class="row">
-        <div class="offset-2 col-md-8 offset-2">
-            <!-- <h3>Find a github user or a repository</h3>
-            <span>Enter a username to see their profile and repos</span> -->
-            <div>
-                <div>
-                    {{user.name}}
-                </div>
+    <div class="card" *ngIf="profile">
+        <div class="card-header">
+            <h3 class="text-success">{{profile.name}}</h3>
+            <span>{{profile.bio}}</span>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <a href="{{profile.html_url}}" target="_blank">
+                    <img class="card-img-top" src="{{profile.avatar_url}}" alt="user-profile">
+                </a>
             </div>
+            <div class="col-sm-6">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <span class="badge badge-dark mr-2">FOLLOWERS: {{profile.followers}}</span>
+                        <span class="badge badge-dark mr-2">FOLLOWING: {{profile.following}}</span>
+                        <span class="badge badge-dark mr-2">PUBLIC REPOS: {{profile.public_repos}}</span>
+                        <span class="badge badge-dark mr-2">PUBLIC GISTS: {{profile.public_gists}}</span>
+                    </li>
+                    <li class="list-group-item" *ngIf="profile.hireable">Available for hire</li>
+                    <li class="list-group-item" *ngIf="profile.company">{{profile.company}}</li>
+                    <li class="list-group-item" *ngIf="profile.email">{{profile.email}}</li>
+                    <li class="list-group-item" *ngIf="profile.blog">
+                        <a href="{{profile.blog}}" target="_blank" class="text-info">{{profile.blog}}</a>
+                    </li>
+                    <li class="list-group-item" *ngIf="profile.location">{{profile.location}}</li>
+                    <li class="list-group-item">{{profile.updated_at}}</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"></li>
+            </ul>
         </div>
     </div>
 </div>
