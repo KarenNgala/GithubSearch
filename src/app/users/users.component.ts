@@ -31,6 +31,8 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.username = 'karenngala';
+    this.findProfile();
   }
 
 }
