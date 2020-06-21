@@ -6,3 +6,14 @@
 .card-img-top {
     width: 55%;
 }
+
+.form-control {
+    width: 60%;
+    margin-top: 2%;
+    margin-left: 10%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn-submit {
+    margin-top: 2%;
+}
