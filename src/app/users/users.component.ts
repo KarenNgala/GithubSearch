@@ -9,26 +9,16 @@ import { GithubService } from '../services/github.service'
   providers:[GithubService]
 })
 export class UsersComponent implements OnInit {
-
-  user:Users;
+  profile;
 
   constructor(private dataService:GithubService){
-  }
-
-  getUser(searchTerm){
-    this.dataService.getData(searchTerm).then(
-      (success)=>{
-        this.user=this.dataService.profile;
-        console.log(this.user)
-      }, 
-      (error)=>{
-        console.log(error)
-      }
-    )
+    this.dataService.getData().subscribe(res => {
+      console.log(res);
+      this.profile=res;
+    });
   }
 
   ngOnInit(): void {
-    this.getUser('karenngala');
   }
 
 }
