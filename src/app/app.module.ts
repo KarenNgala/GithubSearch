@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { HeaderComponent } from './header/header.component';
 import { GithubService } from './services/github.service';
+import { DateCountPipe } from './pipe/date-count.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
-    HeaderComponent
+    HeaderComponent,
+    DateCountPipe
   ],
   imports: [
     BrowserModule,
