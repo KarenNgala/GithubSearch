@@ -1,6 +1,3 @@
-<div class="header">
-    <app-header></app-header>
-</div>
 <div class="container">
     <form class="form-inline form-group">
         <input class="form-control mr-2" type="text" name="search" placeholder="All of github" id="search" [(ngModel)]="username">
@@ -58,7 +55,7 @@
             </div>
         </div>
         <div>
-            <h2>Latest Repos</h2>
+            <h2>User Repositories</h2>
             <ul class="list-group list-group-flush" *ngFor="let repo of work">
                 <li class="list-group-item">
                     <strong>{{repo.name}}</strong>
