@@ -6,14 +6,14 @@
 
     <div class="card" *ngIf="profile">
         <div class="card-header">
-            <h3 appHover class="text-success">{{profile.name}} </h3>
+            <a href="{{profile.html_url}}" target="_blank">
+                <h3 appHover class="text-success">{{profile.login}} </h3>
+            </a>
             <span>{{profile.bio}}</span>
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <a href="{{profile.html_url}}" target="_blank">
-                    <img class="card-img-top" src="{{profile.avatar_url}}" alt="user-profile">
-                </a>
+                <img class="card-img-top" src="{{profile.avatar_url}}" alt="user-profile">
             </div>
             <div class="col-sm-6">
                 <ul class="list-group list-group-flush">
@@ -23,6 +23,7 @@
                         <span class="badge badge-dark mr-2">PUBLIC REPOS: {{profile.public_repos}}</span>
                         <span class="badge badge-dark mr-2">PUBLIC GISTS: {{profile.public_gists}}</span>
                     </li>
+                    <li class="list-group-item">{{profile.name}}</li>
                     <li class="list-group-item" *ngIf="profile.hireable">Available for hire</li>
                     <li class="list-group-item" *ngIf="profile.company">
                         <svg class="bi bi-briefcase-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
