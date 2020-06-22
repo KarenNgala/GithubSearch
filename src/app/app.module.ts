@@ -9,13 +9,17 @@ import { UsersComponent } from './users/users.component';
 import { HeaderComponent } from './header/header.component';
 import { GithubService } from './services/github.service';
 import { DateCountPipe } from './pipe/date-count.pipe';
+import { HoverDirective } from './directive/hover.directive';
+import { NotFoundComponent } from './Error/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     HeaderComponent,
-    DateCountPipe
+    DateCountPipe,
+    HoverDirective,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
