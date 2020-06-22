@@ -4,9 +4,10 @@ import { NotFoundComponent } from './Error/not-found/not-found.component'
 import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
-  {path: 'home', component:UsersComponent},
-  {path:'**',component:NotFoundComponent},
-  {path: '', redirectTo:"/home", pathMatch:"full"},
+  {path: "", pathMatch:"full", redirectTo:"/home"},
+  {path: "home", component:UsersComponent},
+  {path: "404", component:NotFoundComponent},
+  {path: "**", redirectTo:"/404"},
 ];
 
 @NgModule({
