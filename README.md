@@ -1,5 +1,11 @@
 # GithubSearch
 
+## Author
+>Karen Ngala
+
+#### Description
+This is an application that allows users to upload new quotes, upvote, downvote and delete quotes.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
 ## Development server
