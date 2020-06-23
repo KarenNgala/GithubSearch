@@ -22,11 +22,16 @@ export class UsersComponent implements OnInit {
     this.dataService.getData().subscribe(res => {
       console.log(res);
       this.profile=res;
+    }, error => {
+      this.profile=null;
+      document.getElementById("error").innerHTML="User not found!"
     });
 
     this.dataService.getRepos().subscribe(repo => {
       console.log(repo);
       this.work=repo;
+    }, error => {
+      this.work=null;
     })
   }
 
