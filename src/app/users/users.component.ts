@@ -1,6 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
 import { Users } from '../Classes/users';
-import { GithubService } from '../services/github.service'
+import { GithubService } from '../services/github.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-users',
@@ -13,7 +14,15 @@ export class UsersComponent implements OnInit {
   profile;
   work;
 
-  constructor(private dataService:GithubService){
+  showRepo=true;
+  hideUser=false;
+
+  toggleRepo(){
+    this.showRepo=!this.showRepo;
+    this.hideUser=!this.hideUser;
+  }
+
+  constructor(public dataService:GithubService, private router:Router){
   }
 
   findProfile(){
@@ -23,8 +32,8 @@ export class UsersComponent implements OnInit {
       console.log(res);
       this.profile=res;
     }, error => {
-      this.profile=null;
-      document.getElementById("error").innerHTML="User not found!"
+      this.profile=error;
+      document.getElementById('name').style.color="red";
     });
 
     this.dataService.getRepos().subscribe(repo => {
@@ -32,7 +41,7 @@ export class UsersComponent implements OnInit {
       this.work=repo;
     }, error => {
       this.work=null;
-    })
+    });
   }
 
   ngOnInit(): void {
